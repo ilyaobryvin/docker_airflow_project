@@ -1,0 +1,6 @@
+airflow/project/logs/dag_processor_manager/dag_processor_manager.log
+config/airflow.cfg
+*.pyc
+__pycache__/
+sandbox/
+pic/
