@@ -20,8 +20,6 @@ services:
     # Сборка из Dockerfile
     build:
       context: .
-      args:
-        FERNET_KEY: "7INtZwHO0qtO9QbB-P9On407hvHS-Q2QOupz7ak-TuU="
     restart: always
     # Определяет порядок запуска сервисов
     # Будем ждать postgres
@@ -35,6 +33,8 @@ services:
       - ./airflow/dags:/usr/local/airflow/dags
       - ./airflow/plugins:/root/airflow/plugins
       - logs:/usr/local/airflow/logs
+    environment:
+      - FERNET_KEY=${FERNET_KEY}
   # Добавляем сервис Adminer
   adminer:
     image: adminer
